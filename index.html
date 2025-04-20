@@ -72,38 +72,9 @@
         margin-bottom: 20px;
       }
 
-      .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-      }
-
-      .social-icons a {
-        color: #fff;
-        font-size: 20px;
-        transition: opacity 0.3s;
-      }
-
-      .social-icons a:hover {
-        opacity: 0.7;
-      }
-
-      .content {
-        background: #fff;
-        color: #333;
-        padding: 60px 20px;
-        text-align: center;
-      }
-
-      .content h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-
-      /* 卡片式社群連結樣式 */
       .link-card {
         max-width: 360px;
-        margin: 20px auto;
+        margin: 12px auto;
         border-radius: 14px;
         background: rgba(255, 255, 255, 0.95);
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -112,21 +83,21 @@
       }
 
       .link-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-3px);
       }
 
       .link-card a {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 14px;
         text-decoration: none;
         color: #333;
-        padding: 16px;
+        padding: 14px;
       }
 
       .link-card img {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
       }
 
       .link-card p {
@@ -140,40 +111,30 @@
       <div class="overlay"></div>
       <div class="card">
         <img class="avatar" src="your-avatar.webp" alt="頭像">
-        <h1>你的名字</h1>
+        <h1>小龍貓あ彼多</h1>
         <p>這裡是一段關於你的簡介文字，可以是自我介紹、身份、或一句標語。</p>
-        <div class="social-icons">
-          <a href="#" aria-label="Twitter">🐦</a>
-          <a href="#" aria-label="YouTube">📺</a>
-          <a href="#" aria-label="Email">📧</a>
+
+        <!-- Social link buttons 下方社群按鈕 -->
+        <div class="link-card">
+          <a href="https://www.youtube.com/@小龍貓あ彼多" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            <div>
+              <strong>YouTube</strong>
+              <p>小龍貓あ彼多</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="link-card">
+          <a href="https://www.instagram.com/waterbanana3118/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+            <div>
+              <strong>Instagram</strong>
+              <p>@waterbanana3118</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
-
-    <section class="content">
-      <h2>更多內容</h2>
-
-      <!-- YouTube 卡片 -->
-      <div class="link-card">
-        <a href="https://www.youtube.com/@%E5%B0%8F%E9%BE%8D%E8%B2%93%E3%81%82%E5%BD%BC%E5%A4%9A" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-          <div>
-            <strong>YouTube</strong>
-            <p>小龍貓あ彼多</p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Instagram 卡片 -->
-      <div class="link-card">
-        <a href="https://www.instagram.com/waterbanana3118/" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-          <div>
-            <strong>Instagram</strong>
-            <p>@earendel.space</p>
-          </div>
-        </a>
-      </div>
-    </section>
   </body>
 </html>
