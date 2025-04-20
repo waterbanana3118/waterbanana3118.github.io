@@ -28,6 +28,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 40px 20px;
       }
 
       .overlay {
@@ -36,21 +37,21 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(4px);
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(3px);
       }
 
       .card {
         position: relative;
         z-index: 1;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(12px);
-        border-radius: 20px;
-        padding: 30px 40px;
+        /* ✅ 拿掉背景與邊框 */
+        background: transparent;
+        border: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        padding: 0;
         max-width: 400px;
         text-align: center;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       }
 
       .avatar {
@@ -112,9 +113,8 @@
       <div class="card">
         <img class="avatar" src="your-avatar.webp" alt="頭像">
         <h1>小龍貓あ彼多</h1>
-        <p>這裡是一段關於你的簡介文字，可以是自我介紹、身份、或一句標語。</p>
+        <p>居然這個網站會更新?!</p>
 
-        <!-- Social link buttons 下方社群按鈕 -->
         <div class="link-card">
           <a href="https://www.youtube.com/@小龍貓あ彼多" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
