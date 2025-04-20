@@ -1,16 +1,124 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>My GitHub Page</title>
-</head>
-<body>
-    <h1>小龍貓あ彼多的網站</h1>
-    <p>沒錯這裡什麼都沒有</p>
-    
-    <button onclick="window.location.href='https://waterbanana3118.github.io/weather-assistant';">
-        點我前往新網站
-    </button>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>個人主頁</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-</body>
+      body, html {
+        height: 100%;
+        font-family: 'Noto Sans TC', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url('your-background.jpg') no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+      }
+
+      .card {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        padding: 30px 40px;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 3px solid #fff;
+      }
+
+      .card h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .social-icons a {
+        color: #fff;
+        font-size: 20px;
+        transition: opacity 0.3s;
+      }
+
+      .social-icons a:hover {
+        opacity: 0.7;
+      }
+
+      .content {
+        background: #fff;
+        color: #333;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .content h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="overlay"></div>
+      <div class="card">
+        <img class="avatar" src="your-avatar.jpg" alt="頭像">
+        <h1>你的名字</h1>
+        <p>這裡是一段關於你的簡介文字，可以是自我介紹、身份、或一句標語。</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="YouTube">📺</a>
+          <a href="#" aria-label="Email">📧</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <h2>更多內容</h2>
+      <p>這裡可以放你的作品連結、簡歷、聯絡方式、Q&A 或任何你想展示的內容。</p>
+    </section>
+  </body>
 </html>
