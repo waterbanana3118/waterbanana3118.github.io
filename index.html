@@ -1,141 +1,208 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>個人主頁</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>個人主頁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-      body, html {
-        height: 100%;
-        font-family: 'Noto Sans TC', sans-serif;
-        color: #fff;
-        overflow-x: hidden;
-      }
+    /* ==== 左上角漢堡按鈕 ==== */
+    .menu-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.3s;
+    }
+    .menu-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .menu-icon {
+      font-size: 20px;
+      color: white;
+    }
 
-      .hero {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        background: url('background.png') no-repeat center center/cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-      }
+    /* ==== 側邊欄樣式 ==== */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 60px 20px;
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 20px 0;
+      font-size: 16px;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
 
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(3px);
-      }
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('background.png') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
 
-      .card {
-        position: relative;
-        z-index: 1;
-        background: transparent;
-        border: none;
-        backdrop-filter: none;
-        box-shadow: none;
-        padding: 0;
-        max-width: 600px; /* ✅ 寬度放寬 */
-        text-align: center;
-        width: 100%;
-      }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
+    }
 
-      .avatar {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border: 3px solid #fff;
-      }
+    .card {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      border: none;
+      backdrop-filter: none;
+      box-shadow: none;
+      padding: 0;
+      max-width: 800px;
+      text-align: center;
+      width: 100%;
+    }
 
-      .card h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
-      }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #fff;
+    }
 
-      .card p {
-        font-size: 16px;
-        margin-bottom: 20px;
-      }
+    .card h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
 
-      .link-card {
-        width: 100%;         /* ✅ 讓卡片自動填滿 .card */
-        max-width: 100%;
-        margin: 12px auto;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-        text-align: left;
-      }
+    .card p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
 
-      .link-card:hover {
-        transform: translateY(-3px);
-      }
+    .link-card {
+      width: 100%;
+      max-width: 100%;
+      margin: 12px auto;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      text-align: left;
+    }
+    .link-card:hover {
+      transform: translateY(-3px);
+    }
+    .link-card a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #333;
+      padding: 14px;
+    }
+    .link-card img {
+      width: 36px;
+      height: 36px;
+    }
+    .link-card p {
+      margin: 4px 0 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
 
-      .link-card a {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        text-decoration: none;
-        color: #333;
-        padding: 14px;
-      }
+  <!-- 左上角漢堡按鈕 -->
+  <button class="menu-button" onclick="toggleSidebar()">
+    <span class="menu-icon">&#9776;</span>
+  </button>
 
-      .link-card img {
-        width: 36px;
-        height: 36px;
-      }
+  <!-- 側邊欄 -->
+  <div class="sidebar" id="sidebar">
+    <a href="#youtube">YouTube</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#fanart">FanArt</a>
+    <a href="#contact">聯絡我</a>
+  </div>
 
-      .link-card p {
-        margin: 4px 0 0;
-        font-size: 14px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="hero">
-      <div class="overlay"></div>
-      <div class="card">
-        <img class="avatar" src="your-avatar.webp" alt="頭像">
-        <h1>小龍貓あ彼多</h1>
-        <p>居然這個網站會更新?!</p>
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="card">
+      <img class="avatar" src="your-avatar.webp" alt="頭像">
+      <h1>小龍貓あ彼多</h1>
+      <p>居然這個網站會更新?!</p>
 
-        <div class="link-card">
-          <a href="https://www.youtube.com/@小龍貓あ彼多" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-            <div>
-              <strong>YouTube</strong>
-              <p>小龍貓あ彼多</p>
-            </div>
-          </a>
-        </div>
+      <div class="link-card" id="youtube">
+        <a href="https://www.youtube.com/@小龍貓あ彼多" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+          <div>
+            <strong>YouTube</strong>
+            <p>小龍貓あ彼多</p>
+          </div>
+        </a>
+      </div>
 
-        <div class="link-card">
-          <a href="https://www.instagram.com/waterbanana3118/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-            <div>
-              <strong>Instagram</strong>
-              <p>@waterbanana3118</p>
-            </div>
-          </a>
-        </div>
+      <div class="link-card" id="instagram">
+        <a href="https://www.instagram.com/waterbanana3118/" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+          <div>
+            <strong>Instagram</strong>
+            <p>@waterbanana3118</p>
+          </div>
+        </a>
       </div>
     </div>
-  </body>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+  </script>
+
+</body>
 </html>
